@@ -39,8 +39,9 @@ def main():
             result2 = day_module.part2(data)
             print(f"Part 2: {result2}")
 
-    except ImportError:
-        print(f"Day {day} solution not found! Create days/day{day}/solution.py")
+    except ImportError as e:
+        print(f"Potential day {day} solution not found! Create days/day{day}/solution.py")
+        print(e)
     except FileNotFoundError:
         print(f"Input file for day {day} not found!")
     except Exception as e:
