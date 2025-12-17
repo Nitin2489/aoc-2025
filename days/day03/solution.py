@@ -14,13 +14,27 @@ examples:
 return sum of the maximum joltage from each bank
 '''
 
+def get_max_joltage(s, amount) -> int:
+    result = ''
+    for skip in range(amount - 1, -1, -1):
+        # Finds the index of the maximum digit in s up to len(s) - skip
+        idx = max(range(len(s) - skip), key=lambda i: s[i])
+        # Append the found maximum digit to the result and update s to the remaining substring
+        result, s = result + s[idx], s[idx + 1:]
+    return int(result)
+
 def part1(data: str) -> int:
     lines = data.strip().split('\n')
+    result = 0
     for line in lines:
-        print(line)
-    return 0
+        result += get_max_joltage(line, 2)
+
+    return result
 
 def part2(data: str) -> int:
     lines = data.strip().split('\n')
-    # Your solution here
-    return 0
+    result = 0
+    for line in lines:
+        result += get_max_joltage(line, 12)
+
+    return result
