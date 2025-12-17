@@ -15,6 +15,9 @@ return sum of the maximum joltage from each bank
 '''
 
 def get_max_joltage(s, amount) -> int:
+    '''
+    Given a string of digits s, find the maximum number that can be formed by selecting `amount` digits from s in order.
+    '''
     result = ''
     for skip in range(amount - 1, -1, -1):
         # Finds the index of the maximum digit in s up to len(s) - skip
